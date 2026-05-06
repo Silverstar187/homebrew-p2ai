@@ -28,20 +28,38 @@ class Passwort2ai < Formula
     end
 
     # Docs
-    doc.install "README.md", "SKILL.md", "CHANGELOG.md", "LICENSE"
+    doc.install "README.md", "CHANGELOG.md", "LICENSE"
+    # SKILL.md goes to pkgshare so `p2ai install-skill` can find it
+    pkgshare.install "SKILL.md"
+  end
+
+  def post_install
+    # Auto-link Claude Code skill if Claude Code is installed
+    claude_dir = "#{Dir.home}/.claude"
+    if File.directory?(claude_dir)
+      ENV["P2AI_SKILL_MD"] = "#{pkgshare}/SKILL.md"
+      system "#{bin}/p2ai", "install-skill"
+    end
   end
 
   def caveats
     <<~EOS
       Run `p2ai setup` once to enroll your master password in the macOS Keychain
-      and pick your KeePass .kdbx via a native file dialog.
+      and create your KeePass database (auto-created at ~/passwords.kdbx if none
+      exists; set $P2AI_DB to use a different path).
 
       `keepassxc-cli` is required at runtime — install via the cask if you don't
       already have KeePassXC.app:
         brew install --cask keepassxc
 
-      Touch-ID-gated retrieval requires an Apple Silicon or Intel Mac with the
+      Touch-ID-gated retrieval requires an Apple Silicon or Intel Mac with
       Touch-ID hardware enrolled (`bioutil -c` shows ≥1 template).
+
+      For other AI agents (Cursor, Aider, Cline), append rules per project:
+        p2ai system-prompt --target cursor >> .cursorrules
+
+      Claude Code skill is auto-linked into ~/.claude/skills/passwort2ai/ on
+      install. To re-link manually: `p2ai install-skill`.
     EOS
   end
 
