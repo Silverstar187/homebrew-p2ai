@@ -34,11 +34,14 @@ class Passwort2ai < Formula
   end
 
   def post_install
-    # Auto-link Claude Code skill if Claude Code is installed
+    # Auto-link Claude Code skill if Claude Code is installed.
+    # Never fail the brew install if linking errors — user can re-run manually.
     claude_dir = "#{Dir.home}/.claude"
-    if File.directory?(claude_dir)
-      ENV["P2AI_SKILL_MD"] = "#{pkgshare}/SKILL.md"
-      system "#{bin}/p2ai", "install-skill"
+    return unless File.directory?(claude_dir)
+
+    ENV["P2AI_SKILL_MD"] = "#{pkgshare}/SKILL.md"
+    unless system "#{bin}/p2ai", "install-skill"
+      opoo "Claude Code skill auto-link failed; run manually: p2ai install-skill"
     end
   end
 
