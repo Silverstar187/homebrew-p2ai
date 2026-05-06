@@ -1,10 +1,10 @@
 class Passwort2ai < Formula
   desc "Touch-ID-gated KeePass secret retrieval for terminals and AI agents"
   homepage "https://github.com/Silverstar187/passwort2ai-by-fingerprint"
-  url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "232825c3a61c80852ece57d360821f7294beeb131ec0dcfe7ce3ddf388f5faed"
+  url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "ed02fb7359925ea6f194fdbf278f4e1cb714565426276ee64b24a73d522a131f"
   license "MIT"
-  version "0.5.0"
+  version "0.5.1"
 
   depends_on :macos
   depends_on xcode: ["12.0", :build]
