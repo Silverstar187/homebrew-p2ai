@@ -33,18 +33,22 @@ class Passwort2ai < Formula
   end
 
   def caveats
-    <<~EOS
-      Run these two commands to finish setup:
-
-        p2ai setup          # enroll master password in Keychain, create ~/passwords.kdbx
-        p2ai install-skill  # link Claude Code skill into ~/.claude/skills/passwort2ai/
+    s = <<~EOS
+      Run to finish setup:
+        p2ai setup    # enroll master password in Keychain, create ~/passwords.kdbx
 
       `keepassxc-cli` is required at runtime:
         brew install --cask keepassxc
 
-      For other AI agents (Cursor, Aider, Cline), run once per project:
-        p2ai system-prompt --target cursor >> .cursorrules
+      For AI agents, run once per project:
+        p2ai system-prompt --target cursor  >> .cursorrules   # Cursor / Cline
+        p2ai system-prompt --target aider   >> .aider.conf.yml
+        p2ai system-prompt --target claude  >> CLAUDE.md
     EOS
+    if File.directory?("#{Dir.home}/.claude")
+      s += "\nClaude Code detected — run `p2ai install-skill` to register the skill.\n"
+    end
+    s
   end
 
   test do
