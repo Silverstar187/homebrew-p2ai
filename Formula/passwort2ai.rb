@@ -7,7 +7,6 @@ class Passwort2ai < Formula
   version "0.6.0"
 
   depends_on :macos
-  depends_on xcode: ["12.0", :build]
 
   def install
     # Compile native Swift binaries
