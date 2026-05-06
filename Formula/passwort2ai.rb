@@ -6,7 +6,6 @@ class Passwort2ai < Formula
   license "MIT"
   version "0.5.0"
 
-  depends_on "keepassxc" => :recommended
   depends_on :macos
   depends_on xcode: ["12.0", :build]
 
