@@ -4,6 +4,14 @@ class Passwort2ai < Formula
   url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/archive/refs/tags/v0.7.0.tar.gz"
   sha256 "7f04a45bf4892849fc8eab096a6dbbb7f67ccfcf017c7ffc74429993840a6a41"
   license "MIT"
+
+  bottle do
+    root_url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/releases/download/v0.7.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "efe4cb20398c78dc0a3ebbbb20333b9000e71d37886de258085ed9795f870e49"
+    sha256 cellar: :any_skip_relocation, tahoe:         "b07acce46f0b244c887a18ff1de87f7df2c28ec13e764c43e056ab6f5b24af7e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a46fe3a72daffb824274105f51eb25f3323f4d1e908fd497c1dd61ccc5608ef1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "37616b7f22bdbb7e0a6922f52e0af8ba9cbbca736ca6471a947ee55ae3641bc0"
+  end
   version "0.7.0"
 
   depends_on :macos
