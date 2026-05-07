@@ -1,0 +1,38 @@
+name: Audit Formula
+
+# Runs `brew audit` + `brew style` + `brew install --dry-run` on every formula
+# change. Catches Homebrew-style violations and broken syntax before users
+# hit them. Tracks issue #7 (supply-chain hardening) — auditable formula
+# changes on every commit.
+
+on:
+  push:
+    branches: [main]
+    paths: ['Formula/**']
+  pull_request:
+    paths: ['Formula/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Tap self
+        run: brew tap silverstar187/p2ai "$GITHUB_WORKSPACE"
+
+      - name: brew style
+        run: brew style silverstar187/p2ai/passwort2ai
+
+      - name: brew audit (strict, online)
+        run: brew audit --strict --online silverstar187/p2ai/passwort2ai
+
+      - name: brew install --dry-run
+        run: brew install --dry-run silverstar187/p2ai/passwort2ai
