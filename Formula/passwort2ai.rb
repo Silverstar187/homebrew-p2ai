@@ -6,12 +6,13 @@ class Passwort2ai < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/releases/download/v0.7.3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "e7c9b0425a6f856439dad82d18c3fa770937e20e2180ec3679e6c3f5ee14a0a3"
-    sha256 cellar: :any_skip_relocation, tahoe:         "8b746ca09d3b3f2ea89c56dfbfdcd84b0dbe5c42fb5104589984c6790d07bc2f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5160209bd7a5b4d31dc57611e79c7ae2a232962c4bdb311649dde35156016d34"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "615893c569890ccb49c8538fcd79c30f00363d548d2467ec923b9b0683cd81ea"
+    root_url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/releases/download/v0.8.0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ef873aa2837571cbf984bf7326924110e5e45212409f52cf629fc628e825348"
+    sha256 cellar: :any_skip_relocation, tahoe:         "a5952f06529bd92ecb4ae0bde44ccdc35a7f852559832d863e5293ff6bcd6da6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2542498ee52cbd64cc78e784982830f906aa371ff45e9b10f66a9c3a4cad87c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "57458f65057de8fc275675ecaafa49d584795abbbb5a3edaa5eeb10d80beaf9d"
   end
+
 
 
 
