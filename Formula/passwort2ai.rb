@@ -1,8 +1,8 @@
 class Passwort2ai < Formula
   desc "Touch-ID-gated KeePass secret retrieval for terminals and AI agents"
   homepage "https://github.com/Silverstar187/passwort2ai-by-fingerprint"
-  url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "7b9e2df6cff873a1e7cb8150c39ce72c3997dd6daca647b13575d5e45ab5f134"
+  url "https://github.com/Silverstar187/passwort2ai-by-fingerprint/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "b93040a357e457f8d8ff11c4439f935921ec22bb6805472a921945481b4d13f5"
   license "MIT"
 
   bottle do
@@ -16,7 +16,7 @@ class Passwort2ai < Formula
 
 
 
-  version "0.8.0"
+  version "0.9.0"
 
   depends_on :macos
 
